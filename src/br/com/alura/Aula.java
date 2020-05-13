@@ -3,7 +3,7 @@ package br.com.alura;
 /**
  * 
  * @author Edson Cavalcanti
- * - Reescrita do método toString, quando criado uma lista de aula nexta lista chamamos o toString, ao implementar esse método na classe 
+ * - Reescrita do método toString, quando criado uma lista de aula nesta lista chamamos o toString, ao implementar esse método na classe 
  * 	 será exibido conforme implementação, caso contrário será invocado o toString da classe Object.
  * - A implementação da interface Comparable<Aula> tem por objetivo implementarmos o seu método de comparação o compareTo.
  * - Com esse método escrito, ao ordernar uma lista de aulas o método Collections.sort saberá ordernar conforme implementamos o critério a ser usado.

@@ -26,12 +26,12 @@ public class TestandoPerformance {
 	        long comecouMillis = System.currentTimeMillis();
 	        Collections.sort(class1); // É mais rápido.
 	        long tempoCollectionsSort = System.currentTimeMillis() - comecouMillis;
-	        System.out.println("Tempo do Collections.sort(aulas) = " + tempoCollectionsSort + "ms.");
+	        System.out.println("Tempo do Collections.sort(class1) = " + tempoCollectionsSort + "ms.");
 
 	        comecouMillis = System.currentTimeMillis();
 	        class2.sort(Comparator.comparing(Class::getTempo));
 	        long tempoComparatorComparing = System.currentTimeMillis() - comecouMillis;
-	        System.out.println("Tempo do Comparator.comparing(Aula::getTempo()) = " + tempoComparatorComparing + "ms.");
+	        System.out.println("Tempo do Comparator.comparing(Class::getTempo()) = " + tempoComparatorComparing + "ms.");
 
 	        // imprimindo os dois arrays ordenados
 	        System.out.println(class1);
