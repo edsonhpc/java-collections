@@ -19,5 +19,3 @@ public class TesteCurso {
 		
 	}
 }
-
-// Parei no exercicio 03.06 Deferença de aaraylist e linkedList

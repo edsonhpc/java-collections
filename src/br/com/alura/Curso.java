@@ -31,4 +31,19 @@ public class Curso {
 		this.aulas.add(aula);
 	}
 	
+	public int getTempoTotal() {
+		
+		//int tempoTotal = 0;
+		//for (Aula aula : aulas) {
+		//	tempoTotal += aula.getTempo();
+		//} 
+		return this.aulas.stream().mapToInt(Aula::getTempo).sum(); // Java 8 -> Pega a lista de aula e soma;
+	}
+	
+	@Override
+	public String toString() {
+		return "[Curso: "+ this.nome +", tempo total:" + this.getTempoTotal() + ", aulas: "+ aulas.toString() +"]";
+	}
+	
+	
 }
