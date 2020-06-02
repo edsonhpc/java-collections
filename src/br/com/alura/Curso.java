@@ -43,7 +43,6 @@ public class Curso {
 		return this.aulas.stream().mapToInt(Aula::getTempo).sum(); // Java 8 -> Pega a lista de aula e soma;
 	}
 	
-	
 	public void matricula(Aluno aluno) {
 		this.alunos.add(aluno);
 	}
@@ -56,6 +55,10 @@ public class Curso {
 	public String toString() {
 		return "[Curso: "+ this.nome +", tempo total:" + this.getTempoTotal() + ", aulas: "+ aulas.toString() +"]";
 	}
+
+	public boolean estaMatriculado(Aluno aluno) { 
+		return this.alunos.contains(aluno); // Contains utilizará a estrutura bem implementada da tabela de espalhamento e irá retornar true ou false
+	} 										// Quando usamos o método contains de List ele utiliza apenas o equals para comparar dois objetos
 
 	
 }

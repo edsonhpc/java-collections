@@ -29,5 +29,18 @@ public class TesteCursoComAluno {
 			System.out.println(aluno);
 		});
 		
+		System.out.println("O aluno "+ a1.getNome() + " está matriculado?");
+		System.out.println(curso.estaMatriculado(a1));
+		
+		
+		Aluno turini = new Aluno("Rodrigo Turini", 34672);
+		System.out.println("E esse Turini, está matriculado?");
+		System.out.println(curso.estaMatriculado(turini));
+		
+		System.out.println("O a1 é equals ao Turini?");
+		System.out.println(a1.equals(turini));
+		
+		
+		
 	}
 }
