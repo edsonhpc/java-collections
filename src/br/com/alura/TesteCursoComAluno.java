@@ -1,5 +1,8 @@
 package br.com.alura;
 
+import java.util.Iterator;
+import java.util.Set;
+
 /**
  * 
  * @author edson.h.cavalcanti
@@ -29,7 +32,7 @@ public class TesteCursoComAluno {
 			System.out.println(aluno);
 		});
 		
-		System.out.println("O aluno "+ a1.getNome() + " está matriculado?");
+		System.out.println("\n O aluno "+ a1.getNome() + " está matriculado?");
 		System.out.println(curso.estaMatriculado(a1));
 		
 		
@@ -39,6 +42,15 @@ public class TesteCursoComAluno {
 		
 		System.out.println("O a1 é equals ao Turini?");
 		System.out.println(a1.equals(turini));
+		
+		
+		System.out.println("\n Usando o Iterator -> Muito usado nas versões antes do Java 5");
+		Set<Aluno> alunos = curso.getAlunos(); 
+		Iterator<Aluno> iterador = alunos.iterator(); // É um objeto que todas as coleções nos dão acesso e serve para iterar entre os objetos dentro da coleção.
+		
+		while(iterador.hasNext()) {
+			System.out.println(iterador.next());
+		}
 		
 		
 		

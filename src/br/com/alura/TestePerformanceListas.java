@@ -10,8 +10,8 @@ public class TestePerformanceListas {
 
         System.out.println("**** ArrayList vs LinkedList ***");
 
-        List<Integer> numerosArrayList  = new ArrayList<>();
-        List<Integer> numerosLinkedList = new LinkedList<>();
+        List<Integer> numerosArrayList  = new ArrayList<>(); // Usa array para guardar os elementos rapido para pegar um elemento dentro dele ou seja uma posição.
+        List<Integer> numerosLinkedList = new LinkedList<>(); // É mais rapido para inserir elementos no inicio e no final da lista por ser uma lista ligada.
         int quantidadeElementos = 1000000;
 
         long tempoArrayList  = insereElementosNo(numerosArrayList,  quantidadeElementos);

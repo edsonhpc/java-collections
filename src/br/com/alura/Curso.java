@@ -1,9 +1,11 @@
 package br.com.alura;
 
 import java.util.Collections;
-import java.util.HashSet;
+import java.util.HashMap;
+import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 public class Curso {
@@ -11,8 +13,10 @@ public class Curso {
 	private String nome;
 	private String instrutor;
 	private List<Aula> aulas  = new LinkedList<>(); // Possui uma estrutura de de dados chamada de lista ligada, é mais lenta quando precisamos acessar um elemento dentro da lista.
-	private Set<Aluno> alunos = new HashSet<>(); // O Set não garante a ordem dos elementos inseridos, ou seja ele não guarda a sequência.
-	
+//	private Set<Aluno> alunos = new HashSet<>(); // O Set não garante a ordem dos elementos inseridos, ou seja ele não guarda a sequência.
+	private Set<Aluno> alunos = new LinkedHashSet<>(); // Essa implementação de Set nos garante a ordem dos elementos com extrema velocidade no entanto não conseguirmos pegar um elemento get de acordo com sua posição.
+	private Map<Integer, Aluno> matriculaParaAluno = new HashMap<>(); // O Map não é uma implementação de Collection ele é uma Interface por si só.
+																		// LinkedHashMap também mantem a order de inserção
 	public Curso(String nome, String instrutor) {
 		this.nome = nome;
 		this.instrutor = instrutor;
@@ -44,7 +48,8 @@ public class Curso {
 	}
 	
 	public void matricula(Aluno aluno) {
-		this.alunos.add(aluno);
+		this.alunos.add(aluno); // adiciona no Set de alunos
+		this.matriculaParaAluno.put(aluno.getNumeroMatricula(), aluno);
 	}
 
 	public Set<Aluno> getAlunos() {
@@ -60,5 +65,16 @@ public class Curso {
 		return this.alunos.contains(aluno); // Contains utilizará a estrutura bem implementada da tabela de espalhamento e irá retornar true ou false
 	} 										// Quando usamos o método contains de List ele utiliza apenas o equals para comparar dois objetos
 
+	public Aluno buscaMatriculado(int numero) {
+		return this.matriculaParaAluno.get(numero);
+	}
 	
+	public Aluno buscaMatriculadoLambda(int numero) {
+	    return alunos
+	            .stream() // cria uma Stream
+	            .filter(aluno -> Integer.valueOf(aluno.getNumeroMatricula()).equals(numero)) // retorna uma nova stream com filtro informado
+	            .findFirst() // retorna um optional contendo o primeiro elemento da stream
+	            .orElseThrow(() -> new RuntimeException("Aluno não encontrado")); // lança uma exception quando valor for null
+	}
+
 }
